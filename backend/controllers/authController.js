@@ -5,9 +5,13 @@ const { validationResult } = require('express-validator');
 
 // Generate JWT token
 const generateToken = (userId) => {
-    return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRE || '7d',
-    });
+    return jwt.sign(
+        { id: userId },
+        process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_EXPIRE || '7d',
+        }
+    );
 };
 
 // Register new user
@@ -32,7 +36,6 @@ exports.register = async (req, res) => {
             password
         } = req.body;
 
-        // Check existing user
         const [existingUsers] = await pool.execute(
             'SELECT id FROM users WHERE email = ?',
             [email]
@@ -45,10 +48,8 @@ exports.register = async (req, res) => {
             });
         }
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Insert user
         const [result] = await pool.execute(
             `INSERT INTO users
             (firstName, lastName, email, phone, role, password)
@@ -108,7 +109,6 @@ exports.login = async (req, res) => {
 
         const { email, password } = req.body;
 
-        // Find user
         const [users] = await pool.execute(
             'SELECT * FROM users WHERE email = ? LIMIT 1',
             [email]
@@ -123,8 +123,10 @@ exports.login = async (req, res) => {
 
         const user = users[0];
 
-        // Check password
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(
+            password,
+            user.password
+        );
 
         if (!isMatch) {
             return res.status(401).json({
@@ -133,16 +135,23 @@ exports.login = async (req, res) => {
             });
         }
 
-        // Update last login
-        await pool.execute(
-            'UPDATE users SET lastLogin = ? WHERE id = ?',
-            [new Date(), user.id]
-        );
+        // Update last login.
+        // If this update fails, don't stop the login.
+        try {
+            await pool.execute(
+                'UPDATE users SET lastLogin = ? WHERE id = ?',
+                [new Date(), user.id]
+            );
+        } catch (updateError) {
+            console.error(
+                'Last login update failed:',
+                updateError
+            );
+        }
 
         // Remove password from response
         delete user.password;
 
-        // Generate token
         const token = generateToken(user.id);
 
         res.json({
