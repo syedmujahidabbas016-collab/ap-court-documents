@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - AP Court Documents</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/logo.png" alt="AP Court Logo" class="logo-img">
+                <span class="logo-text">AP Court Docs</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="search.html" class="nav-link active">Search</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item" id="authLinks">
+                    <a href="login.html" class="nav-link btn-login">Login</a>
+                    <a href="register.html" class="nav-link btn-register">Register</a>
+                </li>
+                <li class="nav-item" id="userLinks" style="display: none;">
+                    <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#" class="nav-link" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <div class="search-header">
+            <h1><i class="fas fa-search"></i> Search Documents</h1>
+            <p>Search through the entire repository of AP court documents</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search by case number, party name, judge, or keywords...">
+                <button id="searchBtn" class="btn-search">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-section">
+            <h3><i class="fas fa-sliders-h"></i> Filters</h3>
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label>Document Type</label>
+                    <select id="docType">
+                        <option value="">All Types</option>
+                        <option value="judgment">Judgment</option>
+                        <option value="order">Order</option>
+                        <option value="petition">Petition</option>
+                        <option value="affidavit">Affidavit</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Court</label>
+                    <select id="court">
+                        <option value="">All Courts</option>
+                        <option value="supreme">Supreme Court</option>
+                        <option value="high">High Court</option>
+                        <option value="district">District Court</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Date Range</label>
+                    <input type="date" id="dateFrom">
+                    <span>to</span>
+                    <input type="date" id="dateTo">
+                </div>
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="status">
+                        <option value="">All Status</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-actions">
+                <button class="btn-apply-filters" id="applyFilters">
+                    <i class="fas fa-filter"></i> Apply Filters
+                </button>
+                <button class="btn-reset-filters" id="resetFilters">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results-section">
+            <div class="results-header">
+                <span id="resultCount">0 results found</span>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <button class="view-btn" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="searchResults" class="search-results list-view">
+                <!-- Results will be rendered here -->
+                <div class="no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>No documents found</h3>
+                    <p>Try adjusting your search filters or keywords</p>
+                </div>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <button class="page-btn" id="prevPage"><i class="fas fa-chevron-left"></i></button>
+                <span class="page-info" id="pageInfo">Page 1 of 1</span>
+                <button class="page-btn" id="nextPage"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

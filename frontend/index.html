@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Court Documents - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/logo.png" alt="AP Court Logo" class="logo-img">
+                <span class="logo-text">AP Court Docs</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="search.html" class="nav-link">Search</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li class="nav-item" id="authLinks">
+                    <a href="login.html" class="nav-link btn-login">Login</a>
+                    <a href="register.html" class="nav-link btn-register">Register</a>
+                </li>
+                <li class="nav-item" id="userLinks" style="display: none;">
+                    <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#" class="nav-link" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Andhra Pradesh Court Documents</h1>
+            <p class="hero-subtitle">Access, search, and manage court documents from the Andhra Pradesh judiciary system</p>
+            <div class="hero-buttons">
+                <a href="search.html" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Search Documents
+                </a>
+                <a href="upload.html" class="btn btn-secondary">
+                    <i class="fas fa-upload"></i> Upload Document
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-search feature-icon"></i>
+                <h3>Advanced Search</h3>
+                <p>Search through thousands of court documents with advanced filters</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-upload feature-icon"></i>
+                <h3>Easy Upload</h3>
+                <p>Upload judgments, orders, petitions and affidavits securely</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Secure Access</h3>
+                <p>Role-based access control for documents and case management</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Case Tracking</h3>
+                <p>Track case status and document history in real-time</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-count="5000">0</span>
+                <span class="stat-label">Total Documents</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="1200">0</span>
+                <span class="stat-label">Court Cases</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="250">0</span>
+                <span class="stat-label">Active Users</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="98">0</span>
+                <span class="stat-label">% Satisfaction</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AP Court Documents</h4>
+                <p>Digital repository for Andhra Pradesh judiciary</p>
+            </div>
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <a href="search.html">Search</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="upload.html">Upload</a>
+            </div>
+            <div class="footer-section">
+                <h5>Support</h5>
+                <a href="#">Help</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-section">
+                <h5>Follow Us</h5>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AP Court Documents. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

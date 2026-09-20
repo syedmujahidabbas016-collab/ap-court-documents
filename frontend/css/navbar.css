@@ -1,0 +1,154 @@
+.navbar {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a1a2e;
+    background: linear-gradient(135deg, #1a1a2e, #4a6cf7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s;
+    color: #1a1a2e;
+}
+
+.nav-link:hover {
+    background: #f0f3ff;
+    color: #4a6cf7;
+}
+
+.nav-link.active {
+    background: #4a6cf7;
+    color: white;
+}
+
+.nav-link.active:hover {
+    background: #3a56d4;
+    color: white;
+}
+
+.btn-login {
+    color: #4a6cf7;
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    background: #e8edff;
+}
+
+.btn-register {
+    background: #4a6cf7;
+    color: white;
+}
+
+.btn-register:hover {
+    background: #3a56d4;
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #1a1a2e;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: white;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+        gap: 5px;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}

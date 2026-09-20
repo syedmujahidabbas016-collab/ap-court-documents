@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AP Court Documents</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/logo.png" alt="AP Court Logo" class="logo-img">
+                <span class="logo-text">AP Court Docs</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="search.html" class="nav-link">Search</a></li>
+                <li class="nav-item"><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li class="nav-item" id="authLinks">
+                    <a href="login.html" class="nav-link btn-login">Login</a>
+                    <a href="register.html" class="nav-link btn-register">Register</a>
+                </li>
+                <li class="nav-item" id="userLinks" style="display: none;">
+                    <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#" class="nav-link" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+            <p>Welcome back, <span id="userName">User</span>!</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Documents</h3>
+                    <p id="totalDocuments">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Active Cases</h3>
+                    <p id="activeCases">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon purple">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Pending</h3>
+                    <p id="pendingItems">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon orange">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Completed</h3>
+                    <p id="completedItems">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity & Quick Actions -->
+        <div class="dashboard-grid">
+            <div class="recent-activity">
+                <h2><i class="fas fa-history"></i> Recent Activity</h2>
+                <div class="activity-list" id="activityList">
+                    <div class="activity-item">
+                        <i class="fas fa-upload"></i>
+                        <div>
+                            <p>Document uploaded: <strong>Case #AP2024-001</strong></p>
+                            <span class="time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-search"></i>
+                        <div>
+                            <p>Searched for: <strong>Judgment 2023</strong></p>
+                            <span class="time">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <p>Viewed document: <strong>Order #AP2024-045</strong></p>
+                            <span class="time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                <div class="action-grid">
+                    <a href="upload.html" class="action-btn">
+                        <i class="fas fa-upload"></i>
+                        <span>Upload Document</span>
+                    </a>
+                    <a href="search.html" class="action-btn">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </a>
+                    <a href="#" class="action-btn" id="newCaseBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>New Case</span>
+                    </a>
+                    <a href="profile.html" class="action-btn">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Profile Settings</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Documents -->
+        <div class="recent-documents">
+            <h2><i class="fas fa-file-pdf"></i> Recent Documents</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Document Name</th>
+                            <th>Case Number</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentDocumentsTable">
+                        <tr>
+                            <td>Judgment in State vs. Accused</td>
+                            <td>AP2024-001</td>
+                            <td><span class="badge judgment">Judgment</span></td>
+                            <td>2024-01-15</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><a href="document.html" class="view-btn">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>Interim Order in Civil Case</td>
+                            <td>AP2024-023</td>
+                            <td><span class="badge order">Order</span></td>
+                            <td>2024-01-12</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td><a href="document.html" class="view-btn">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>Petition for Bail</td>
+                            <td>AP2024-056</td>
+                            <td><span class="badge petition">Petition</span></td>
+                            <td>2024-01-10</td>
+                            <td><span class="status in-progress">In Progress</span></td>
+                            <td><a href="document.html" class="view-btn">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
