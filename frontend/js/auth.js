@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // API URL
 // =========================
 
-const AUTH_API = 'http://localhost:5000/api';
+const AUTH_API = 'https://ap-court-documents-backend.onrender.com/api';
 
 
 // =========================
